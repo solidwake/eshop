@@ -59,6 +59,18 @@ const products = [
     rating: 4.5,
     numReviews: 12
   },
+  {
+    _id: '6',
+    name: 'Product 6',
+    image: '/images/sample.jpg',
+    description: 'Description of Product 6',
+    brand: 'Brand 6',
+    category: 'Category 6',
+    price: 99.99,
+    countInStock: 5,
+    rating: 4.5,
+    numReviews: 12
+  },
 ]
 
 export default products
