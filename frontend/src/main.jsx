@@ -9,17 +9,18 @@ import {
 import App from './App.jsx'
 import './index.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import HomeScreen from './screens/HomeScreen.jsx'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path='/' elements={<App />}>
-
+    <Route path='/' element={<App />}>
+      <Route index={true} path='/' element={<HomeScreen />} />
     </Route>
   )
 )
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+    <RouterProvider router={router} />
+  </React.StrictMode>
 )
