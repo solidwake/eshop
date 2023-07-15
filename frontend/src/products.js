@@ -8,8 +8,8 @@ const products = [
     category: 'Category 1',
     price: 99.99,
     countInStock: 5,
-    rating: 4.5,
-    numReviews: 12
+    rating: 3.5,
+    numReviews: 9
   },
   {
     _id: '2',
@@ -20,8 +20,8 @@ const products = [
     category: 'Category 2',
     price: 99.99,
     countInStock: 5,
-    rating: 4.5,
-    numReviews: 12
+    rating: 2.5,
+    numReviews: 6
   },
   {
     _id: '3',
@@ -32,7 +32,7 @@ const products = [
     category: 'Category 3',
     price: 99.99,
     countInStock: 5,
-    rating: 4.5,
+    rating: 5,
     numReviews: 12
   },
   {
@@ -45,7 +45,7 @@ const products = [
     price: 99.99,
     countInStock: 5,
     rating: 4.5,
-    numReviews: 12
+    numReviews: 14
   },
   {
     _id: '5',
@@ -56,8 +56,8 @@ const products = [
     category: 'Category 5',
     price: 99.99,
     countInStock: 5,
-    rating: 4.5,
-    numReviews: 12
+    rating: 4,
+    numReviews: 13
   },
   {
     _id: '6',
@@ -69,7 +69,7 @@ const products = [
     price: 99.99,
     countInStock: 5,
     rating: 4.5,
-    numReviews: 12
+    numReviews: 4
   },
 ]
 

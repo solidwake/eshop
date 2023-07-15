@@ -53,6 +53,32 @@ button:focus-visible {
 	outline: 4px auto -webkit-focus-ring-color;
 }
 
+.product-link {
+	text-decoration: none;
+}
+
+.product-title {
+	height: 1.5em;
+	font-size: 2em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.rating span {
+	margin: 0.1rem;
+}
+
+.rating svg {
+	color: #f8e825;
+}
+
+.rating-text {
+	font-size: 0.8rem;
+	font-weight: 600;
+	padding-left: 0.5rem;
+}
+
 @media (prefers-color-scheme: light) {
 	:root {
 		color: #213547;
