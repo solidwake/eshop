@@ -55,7 +55,7 @@ const products = [
     brand: 'Brand 5',
     category: 'Category 5',
     price: 99.99,
-    countInStock: 5,
+    countInStock: 0,
     rating: 4,
     numReviews: 13
   },
