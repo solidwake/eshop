@@ -1,0 +1,12 @@
+{
+	"name": "eshop",
+	"version": "1.0.0",
+	"description": "PurpleUsed backend",
+	"type": "module",
+	"main": "server.js",
+	"scripts": {
+		"start": "node backend/server.js"
+	},
+	"author": "Idris Westbrook",
+	"license": "ISC"
+}
