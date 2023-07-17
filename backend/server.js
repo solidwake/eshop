@@ -12,4 +12,9 @@ app.get('/data/products', (req, res) => {
   res.json(products)
 })
 
+app.get('/data/products/:id', (req, res) => {
+  const product = products.find((p) => p._id === req.params.id)
+  res.json(product)
+})
+
 app.listen(port, () => console.log(`Server running on port ${port}`))
