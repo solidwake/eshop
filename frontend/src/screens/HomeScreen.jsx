@@ -4,7 +4,7 @@ import Loader from '../components/Loader'
 import Message from '../components/Message'
 import { useGetProductsQuery } from '../slices/productsApiSlice'
 
-function HomeScreen() {
+export default function HomeScreen() {
   const { data: products, isLoading, error } = useGetProductsQuery()
 
   return (
@@ -26,5 +26,3 @@ function HomeScreen() {
     </>
   )
 }
-
-export default HomeScreen
