@@ -71,7 +71,6 @@ export default function ProductScreen() {
                   </Col>
                 </Row>
               </ListGroup.Item>
-
               {product.countInStock > 0 && (
                 <ListGroup.Item>
                   <Row>
@@ -94,8 +93,9 @@ export default function ProductScreen() {
                 </ListGroup.Item>
               )}
               <ListGroup.Item>
-                <Button className='btn-block'
+                <Button
                   type='button'
+                  className='btn-block'
                   disabled={product.countInStock === 0}
                   onClick={addToCartHandler}>
                   Add To Cart
