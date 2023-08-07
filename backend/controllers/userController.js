@@ -1,6 +1,6 @@
 import asyncHandler from '../middleware/asyncHandler.js'
 import User from '../models/UserModel.js'
-import jwt from 'jsonwebtoken'
+import generateToken from '../utils/generateToken.js'
 
 // @desc  Auth user & get token
 // @route POST /data/users/login
@@ -11,18 +11,7 @@ const authUser = asyncHandler(async (req, res) => {
   const user = await User.findOne({ email })
 
   if (user && (await user.matchPassword(password))) {
-    const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {
-      // Set to expire in '1d' for production build
-      expiresIn: '30d'
-    })
-
-    // Set JWT as HTTP-Only cookie
-    res.cookie('jwt', token, {
-      httpOnly: true,
-      secure: process.env.NODE_ENV !== 'development',
-      sameSite: 'strict',
-      maxAge: 30 * 24 * 60 * 60 * 1000 // 30 days - values are in milliseconds
-    })
+    generateToken(res, user._id)
 
     res.json({
       _id: user._id,
@@ -31,8 +20,8 @@ const authUser = asyncHandler(async (req, res) => {
       isAdmin: user.isAdmin
     })
   } else {
-    res.status(401)
-    throw new Error('Invalid email or password')
+    res.status(400)
+    throw new Error('Invalid user data')
   }
 })
 
@@ -40,7 +29,34 @@ const authUser = asyncHandler(async (req, res) => {
 // @route POST /data/users
 // @acces Public
 const registerUser = asyncHandler(async (req, res) => {
-  res.send('register user')
+  const { name, email, password } = req.body
+
+  const userExists = await User.findOne({ email })
+
+  if (userExists) {
+    res.status(400)
+    throw new Error('User already exists')
+  }
+
+  const user = await User.create({
+    name,
+    email,
+    password
+  })
+
+  if (user) {
+    generateToken(res, user._id)
+
+    res.status(201).json({
+      _id: user.id,
+      name: user.name,
+      email: user.email,
+      isAdmin: user.isAdmin
+    })
+  } else {
+    res.status(400)
+    throw new Error('Invalid user data')
+  }
 })
 
 // @desc  Logout user and clear cookie
